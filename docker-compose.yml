@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: spacetraders
+      POSTGRES_DB: spacetraders
+    ports:
+      - "54321:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+volumes:
+  pg_data:
